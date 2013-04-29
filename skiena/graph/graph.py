@@ -1,6 +1,10 @@
-from queue import Queue
-from stack import Stack
-from enum import enum
+import sys
+import os
+sys.path.insert(1, os.path.join(sys.path[0], '..'))
+
+from datastruct.queue import Queue
+from datastruct.stack import Stack
+from util.enum import enum
 from graphMatrix import Graph as MGraph
 
 class EdgeNode(object):

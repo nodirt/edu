@@ -12,7 +12,7 @@ def eval(expr):
 	l = eval(expr.left)
 	r = eval(expr.right)
 
-	if v == '+'
+	if v == '+':
 		return l + r
 	elif v == '-':
 		return l - r

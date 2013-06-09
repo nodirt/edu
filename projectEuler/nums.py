@@ -35,7 +35,7 @@ def primes(maxPrime=None):
         yield p
 
     x = _primes[-1] + 2
-    while maxPrime is None or x < maxPrime:
+    while maxPrime is None or x <= maxPrime:
         isPrime = True
         for p in _primes:
             if x % p == 0:

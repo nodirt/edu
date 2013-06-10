@@ -1,5 +1,10 @@
+
 def find_max_subarray(array):
+	if type(array) != list:
+		raise Exception('List expected')
+
 	def find_cross(low, mid, high):
+		"""O(high - mid)"""
 		left = 0
 		left_sum = 0
 		cur_sum = 0
@@ -21,6 +26,7 @@ def find_max_subarray(array):
 		return (left, right, left_sum + right_sum)
 
 	def find(low, high):
+		"""O(n * log(n)), where n = high - low"""
 		if low >= high:
 			return (low, low, array[low])
 		mid = low + int((high - low) // 2)

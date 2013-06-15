@@ -1,33 +1,85 @@
+class MaxHeap(object):
+    def __init__(self, items, size=None):
+        if type(items) is not list:
+            raise TypeError('items parameter is not list')
+        self.items = items
+        if size is None:
+            size = len(items)
+        self.size = size
+
+    def left(self, i):
+        return 2 * i
+
+    def right(self, i):
+        return 2 * i + 1
+
+    def parent(self, i):
+        return int(2 // i)
+
+    # O(log(n))
+    def max_heapify(self, i):
+        l = self.left(i)
+        r = self.right(i)
+        if l >= self.size:
+            return
+        largest = r if r < self.size and self.items[r] > self.items[l] else l
+        if self.items[largest] > self.items[i]:
+            self.items[i], self.items[largest] = self.items[largest], self.items[i]
+            self.max_heapify(largest)
+
+    def heapify_all(self):
+        for i in xrange(self.size // 2, -1, -1):
+            self.max_heapify(i)
+
+    def max(self):
+        return self.items[0]
+
+    def extract_max(self):
+        result = self.items[0]
+        self.size -= 1
+        self.items[0] = self.items[self.size]
+        self.items[self.size] = None
+        self.max_heapify(0)
+        return result
+
+    def bubble_up(self, i):
+        while i > 0:
+            p = self.parent(i)
+            if self.items[p] >= self.items[i]:
+                break
+
+            self.items[p], self.items[i] = self.items[i], self.items[p]
+            self.max_heapify(p)
+            i = p
+
+    def insert(self, key):
+        if self.size + 1 >= len(self.items):
+            raise ValueError('Out of capacity')
+        self.items[self.size] = 0
+        self.size += 1
+        self.bubble_up(self.size - 1)
+
+    def increase_key(i, key):
+        if key < self.items[i]:
+            raise ValueError('Existing key is larger')
+        self.items[i] = key
+        self.bubble_up(i)
+
+
 def heap_sort(array):
     """Heap-sort algorithm implementaiton. Runs in O(n logn) time and O(1) space"""
 
     if array is None:
             raise Error("Parameter 'array' cannot be null")
 
-    # O(log(n-i))
-    def max_heapify(array, n, i):
-        left = 2 * i
-        right = left + 1
-        largest = i
-        if left < n:
-            if array[left] > array[largest]:
-                largest = left
-            if right < n and array[right] > array[largest]:
-                largest = right
-        if largest > i:
-            array[i], array[largest] = array[largest], array[i]
-            max_heapify(array, n, largest)
-
-    n = len(array)
-    # O(n)
-    for i in xrange(n/2, -1, -1):
-        max_heapify(array, n, i)
+    heap = MaxHeap(array)
+    heap.heapify_all()
 
     # O(n*log(n))
-    while n > 0:
-        n -= 1          
-        array[0], array[n] = array[n], array[0]
-        max_heapify(array, n, 0)    
+    while heap.size > 0:
+        heap.size -= 1
+        array[heap.size], array[0] = array[0], array[heap.size]
+        heap.max_heapify(0)
             
 
 def test():

@@ -1,32 +1,39 @@
-def counting_sort(nums, k):
-	count = [0] * (k + 1)
-	for x in nums:
-		count[x] += 1
+def counting_sort(items, k, key=None):
+	if key is None:
+		key = lambda x: x
 
-	for i in xrange(1, k + 1):
+	count = [0] * k
+	for x in items:
+		count[key(x)] += 1
+
+	for i in xrange(1, k):
 		count[i] += count[i - 1]
 
-	result = [0] * len(nums)
-	for x in reversed(nums):
-		count[x] -= 1
-		result[count[x]] = x
-		assert(count[x] >= 0)
+	copy = items[:]
+	for x in reversed(copy):
+		xk = key(x)
+		count[xk] -= 1
+		assert(count[xk] >= 0)
+		items[count[xk]] = x
 
-	return result
+
+def is_sorted(array):
+	for i in xrange(1, len(array)):
+		if array[i - 1] > array[i]:
+			return False
+	return True
 
 
 def main():
 	def test_sort(array):
-		array = counting_sort(array, 10)
-		print(array)
-		for i in xrange(1, len(array)):
-			assert(array[i - 1] <= array[i])
+		counting_sort(array, 10)
+		assert(is_sorted(array))
 
 	test_sort([0, 1, 2, 0, 3, 2, 1])
 	test_sort([0, 1, 1, 0, 1, 1, 1])
 	test_sort([0] * 10)
-	test_sort(range(10))
-	test_sort(range(10, -1, -1))
+	test_sort(range(9))
+	test_sort(range(9, -1, -1))
 	print('All tests passed')
 
 if __name__ == '__main__':

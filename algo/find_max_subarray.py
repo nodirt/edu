@@ -1,5 +1,12 @@
-
 def find_max_subarray(array):
+    """Find maximum subarray in an array
+
+    Description:
+        Cormen [1]: section 4.1, page 70
+
+    History:
+        Author: Bentley (1986)
+    """
     if type(array) != list:
         raise Exception('List expected')
 

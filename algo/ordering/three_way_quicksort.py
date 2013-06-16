@@ -1,6 +1,21 @@
 import test
 
 def three_way_quicksort(nums):
+    """3-way quicksort, works much faster than original quicksort when input contains duplicates.
+
+    Complexity:
+        Time: O(n*n)
+        Average time: O(n * log(n))
+        Space: O(1)
+
+    Description:
+        Wikipedia: http://en.wikipedia.org/wiki/Quicksort#Variants
+        Sedgewick [2]: section 2.3, page 296
+
+    History:
+        Author: Sedgewick (1970s)
+        Was improved by J. Bentley and D. McIlroy in 1990s and got popularity
+    """
     def sort(lo, hi):
         if lo >= hi:
             return

@@ -1,6 +1,21 @@
 import test
 
 def quick_sort(array):
+    """Quicksort
+
+    Complexity:
+        Time: O(n*n)
+        Average time: O(n * log(n))
+        Space: O(1)
+
+    Description:
+        Wikipedia: http://en.wikipedia.org/wiki/Quicksort
+        Cormen [1]: section 7, page 170
+        Sedgewick [2]: section 2.3, page 288
+
+    History:
+        Author: Tony Hoare (1960)
+    """
     def sort(low, high):
         if low >= high:
             return

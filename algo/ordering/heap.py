@@ -2,6 +2,22 @@ import operator
 import test
 
 class Heap(object):
+    """Binary heap with a comparison function.
+
+    Invariants:
+        A nearly complete binary tree.
+        Key of a node is less or equal than the key of the parent node, if any.
+
+    Description:
+        Wikipedia: http://en.wikipedia.org/wiki/Heap_(data_structure)
+        Cormen [1]: section 6.1, page 151
+        Sedgewick [2]: section 2.4, page 313
+
+    History:
+        Author: J. W. J. Williams (1964)
+        Williams invented heap as a part of heapsort algorithm
+        The algorithm in heapify_all was suggested by Robert W. Floyd (1964).
+    """
     def __init__(self, items, size=None, cmpFn=None):
         if type(items) is not list:
             raise TypeError('items parameter is not list')
@@ -27,6 +43,15 @@ class Heap(object):
 
     # O(log(n))
     def max_heapify(self, i):
+        """Fix max-property invariant if the ith node key is less than any of its children keys
+
+        Complexity:
+            Time: O(log(n/i))
+            Space: O(1)
+
+        Assumptions:
+            Left and right subtrees of ith node are heaps
+        """
         l = self.left(i)
         r = self.right(i)
         if l >= self.size:
@@ -44,6 +69,12 @@ class Heap(object):
         return self.items[0]
 
     def extract_max(self):
+        """Get maximum element and remove it
+
+        Complexity:
+            Time: O(log(n/i))
+            Space: O(1)
+        """
         result = self.items[0]
         self.size -= 1
         self.items[0] = self.items[self.size]
@@ -52,6 +83,15 @@ class Heap(object):
         return result
 
     def bubble_up(self, i):
+        """Fix max-property invariant if the ith node key is greater than its parent
+
+        Complexity:
+            Time: O(log(i))
+            Space: O(1)
+
+        Assumptions:
+            Left and right subtrees of ith node are heaps
+        """        
         while i > 0:
             p = self.parent(i)
             if self.compare(p, i) >= 0:
@@ -62,6 +102,12 @@ class Heap(object):
             i = p
 
     def insert(self, key):
+        """Insert a new element
+
+        Complexity:
+            Time: O(log(n))
+            Space: O(1)
+        """                
         if self.size >= len(self.items):
             raise ValueError('Out of capacity')
         self.items[self.size] = key
@@ -83,8 +129,8 @@ class Heap(object):
         self.max_heapify(i)
 
 
-# merge descending ordered lists
 def merge_lists(lists):
+    """Merge descending ordered lists"""
     def cmpLists(a, b):
         al, ai = a
         bl, bi = b

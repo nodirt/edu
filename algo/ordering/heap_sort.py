@@ -3,8 +3,22 @@ from heap import Heap
 import test
 
 def heap_sort(array):
-    """Heap-sort algorithm implementaiton. Runs in O(n logn) time and O(1) space"""
+    """Heapsort
 
+    Complexity:
+        Time: O(n * log(n))
+        Space: O(1)
+
+    Description:
+        Wikipedia: http://en.wikipedia.org/wiki/Heapsort
+        Cormen [1]: section 6.4, page 159
+        Sedgewick [2]: section 2.4, p. 323
+
+    History:
+        Author: J. W. J. Williams (1964)
+        Williams has invented heapsort, as well as heap.
+        The algorithm in heapify_all was suggested by Robert W. Floyd (1964).
+    """
     if array is None:
             raise Error("Parameter 'array' cannot be null")
 

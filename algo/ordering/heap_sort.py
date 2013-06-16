@@ -12,7 +12,7 @@ def heap_sort(array):
     Description:
         Wikipedia: http://en.wikipedia.org/wiki/Heapsort
         Cormen [1]: section 6.4, page 159
-        Sedgewick [2]: section 2.4, p. 323
+        Sedgewick [2]: section 2.4, page 323
 
     History:
         Author: J. W. J. Williams (1964)

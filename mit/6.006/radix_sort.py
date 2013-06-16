@@ -1,15 +1,43 @@
 import math
-from counting_sort import counting_sort
 import test
 
 def radix_sort(nums):
-    d = int(math.log10(max(nums))) + 1
     n = len(nums)
-    r = int(math.log(n, 2))
+    r = min(1, int(math.log(n, 2)))
     base = 1 << r
     mask = base - 1
-    for i in xrange(d):
-        counting_sort(nums, base, key=lambda x: (x >> r * i) & mask)
+    count = [0] * base
+    buf = [0] * n
+    s = 0
+    while True:
+        fin = True
+        for x in nums:
+            key = x >> s
+            if key != 0:
+                fin = False
+            key &= mask
+            count[key] += 1
+
+        if fin:
+            break
+
+        for i in xrange(1, base):
+            count[i] += count[i - 1]
+
+        for x in reversed(nums):
+            key = (x >> s) & mask
+            count[key] -= 1
+            assert(count[key] >= 0)
+            buf[count[key]] = x
+
+        for i in xrange(n):
+            nums[i] = buf[i]
+
+        # cleanup
+        for i in xrange(base):
+            count[i] = 0
+
+        s += r
 
 
 def main():

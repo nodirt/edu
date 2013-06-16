@@ -83,21 +83,6 @@ class Heap(object):
         self.max_heapify(i)
 
 
-def heap_sort(array):
-    """Heap-sort algorithm implementaiton. Runs in O(n logn) time and O(1) space"""
-
-    if array is None:
-            raise Error("Parameter 'array' cannot be null")
-
-    heap = Heap(array)
-    heap.heapify_all()
-
-    # O(n*log(n))
-    while heap.size > 0:
-        heap.size -= 1
-        array[heap.size], array[0] = array[0], array[heap.size]
-        heap.max_heapify(0)
-
 # merge descending ordered lists
 def merge_lists(lists):
     def cmpLists(a, b):
@@ -122,8 +107,6 @@ def merge_lists(lists):
 
 
 def main():
-    test.test_sort(heap_sort)
-
     def test_merge_lists(a, b, c, merged):
         assert(merged == list(merge_lists([a, b, c])))
 

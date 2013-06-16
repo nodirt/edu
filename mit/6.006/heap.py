@@ -1,4 +1,5 @@
 import operator
+import test
 
 class Heap(object):
     def __init__(self, items, size=None, cmpFn=None):
@@ -120,15 +121,8 @@ def merge_lists(lists):
             queue.insert((l, i))
 
 
-def test():
-    def test_heap_sort(array):
-        expected = list(sorted(array))
-        heap_sort(array)
-        assert(array == expected)
-
-    test_heap_sort([4, 2, 1])
-    test_heap_sort([4, 1, 2, 1])
-    test_heap_sort([])
+def main():
+    test.test_sort(heap_sort)
 
     def test_merge_lists(a, b, c, merged):
         assert(merged == list(merge_lists([a, b, c])))
@@ -138,5 +132,5 @@ def test():
     print('All tests passed')
 
 if __name__ == '__main__':
-    test()
+    main()
 

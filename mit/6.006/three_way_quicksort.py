@@ -1,3 +1,5 @@
+import test
+
 def three_way_quicksort(nums):
 	def sort(lo, hi):
 		if lo >= hi:
@@ -25,17 +27,7 @@ def three_way_quicksort(nums):
 
 
 def main():
-	def test_sort(array):
-		three_way_quicksort(array)
-		print(array)
-		for i in xrange(1, len(array)):
-			assert(array[i - 1] <= array[i])
-
-	test_sort([0, 1, 2, 0, 3, 2, 1])
-	test_sort([0, 1, 1, 0, 1, 1, 1])
-	test_sort([0] * 10)
-	test_sort(range(10))
-	test_sort(range(10, -1, -1))
+	test.test_sort(three_way_quicksort)
 	print('All tests passed')
 
 if __name__ == '__main__':

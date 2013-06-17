@@ -28,7 +28,7 @@ def heapsort(nums):
         return 2 * i + 1
 
     def max_heapify(i):
-        """Fix max-property invariant if the ith node key is less than any of its children keys
+        """Fix max-property invariant if the i-th node key is less than any of its children keys
 
         Complexity:
             Time: O(log(n/i))

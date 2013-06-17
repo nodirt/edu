@@ -2,7 +2,7 @@
 
 Complexity:
     Time: O(n^2). Average: O(n)
-    Space: O(1). Call stack: O(n). Average call stack: O(log(n))
+    Space: O(n). Average: O(log(n))
 
 Description:
     Wikipedia: http://en.wikipedia.org/wiki/Order_statistic

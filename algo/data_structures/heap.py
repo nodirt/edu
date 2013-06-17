@@ -43,14 +43,14 @@ class Heap(object):
 
     # O(log(n))
     def max_heapify(self, i):
-        """Fix max-property invariant if the ith node key is less than any of its children keys
+        """Fix max-property invariant if the i-th node key is less than any of its children keys
 
         Complexity:
             Time: O(log(n/i))
             Space: O(1)
 
         Assumptions:
-            Left and right subtrees of ith node are heaps
+            Left and right subtrees of i-th node are heaps
         """
         l = self.left(i)
         r = self.right(i)
@@ -83,14 +83,14 @@ class Heap(object):
         return result
 
     def bubble_up(self, i):
-        """Fix max-property invariant if the ith node key is greater than its parent
+        """Fix max-property invariant if the i-th node key is greater than its parent
 
         Complexity:
             Time: O(log(i))
             Space: O(1)
 
         Assumptions:
-            Left and right subtrees of ith node are heaps
+            Left and right subtrees of i-th node are heaps
         """        
         while i > 0:
             p = self.parent(i)

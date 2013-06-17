@@ -27,7 +27,6 @@ def heapsort(nums):
     def right(i):
         return 2 * i + 1
 
-    # O(log(n))
     def max_heapify(i):
         """Fix max-property invariant if the ith node key is less than any of its children keys
 
@@ -36,7 +35,7 @@ def heapsort(nums):
             Space: O(1)
 
         Assumptions:
-            Left and right subtrees of ith node are heaps
+            Left and right subtrees of i-th node are heaps
         """
         l = left(i)
         r = right(i)

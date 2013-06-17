@@ -1,4 +1,4 @@
-"""Find ith smallest element in the array, iterative version
+"""Find i-th smallest element in the array, iterative version
 
 Complexity:
     Time: O(n^2)

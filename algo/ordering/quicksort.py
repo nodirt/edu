@@ -6,7 +6,7 @@ def quick_sort(array):
     Properties:
         Unstable
         Time: O(n^2). Average: O(n * log(n))
-        Space: O(1). Call stack: O(log(n))
+        Space: O(1). Call stack: O(n). Average call stack: log(n))
 
     Description:
         Wikipedia: http://en.wikipedia.org/wiki/Quicksort

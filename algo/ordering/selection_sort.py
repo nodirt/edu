@@ -5,7 +5,7 @@ def selection_sort(nums):
     """Selection sort. Naive implementation is not practical.
 
     Complexity:
-        Time: O(n&2)
+        Time: O(n^2)
         Space: O(1)
 
     Description:

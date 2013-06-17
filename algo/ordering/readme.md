@@ -17,5 +17,5 @@ Linear-time sorting:
 
 Other:
 
+* [Sort randomly](random_order.py)
 * [Find i-th smallest element](order_statistic.py)
-* [Change order randomly](random_order.py)

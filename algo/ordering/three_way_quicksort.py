@@ -1,12 +1,13 @@
 import test
 
 def three_way_quicksort(nums):
-    """3-way quicksort, works much faster than original quicksort when input contains duplicates.
+    """3-way quicksort, works faster than original quicksort when input contains duplicates.
 
-    Complexity:
+    Properties:
         Time: O(n*n)
         Average time: O(n * log(n))
         Space: O(1)
+        Adaptive: O(n) time when O(1) unique keys
 
     Description:
         Wikipedia: http://en.wikipedia.org/wiki/Quicksort#Variants

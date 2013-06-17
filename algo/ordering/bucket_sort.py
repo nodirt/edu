@@ -1,12 +1,14 @@
 import test
 
 def bucket_sort(nums, min=0, max=1):
-    """Bucket sort. Sorts integers belonging to [min, max)
+    """Bucket sort. Sorts floating-point numbers belonging to [min, max) range.
 
-    Complexity:
+    Properties:
+        Stable
         Time: O(n^2)
         Average time: O(n)
         Space: O(n)
+        Can be applied to numbers only
 
     Description:
         Wikipedia: https://en.wikipedia.org/wiki/Bucket_sort

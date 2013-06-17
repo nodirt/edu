@@ -2,11 +2,13 @@ import test
 
 
 def counting_sort(items, k):
-    """Counting sort, sorts integers from 0 to k - 1
+    """Counting sort, sorts integers from 0 to k - 1.
 
-    Complexity:
+    Properties:
+        Stable
         Time: O(n + k)
         Space: O(n + k)
+        Can be applied to integers only
 
     Description:
         Wikipedia: http://en.wikipedia.org/wiki/Counting_sort

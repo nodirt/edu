@@ -4,7 +4,8 @@ import test
 def radix_sort(nums):
     """Radix sort
 
-    Complexity:
+    Properties:
+        Stable
         Time: O(n)
         Space: O(n + k)
 

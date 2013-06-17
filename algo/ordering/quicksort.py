@@ -3,10 +3,10 @@ import test
 def quick_sort(array):
     """Quicksort
 
-    Complexity:
-        Time: O(n*n)
-        Average time: O(n * log(n))
-        Space: O(1)
+    Properties:
+        Unstable
+        Time: O(n^2). Average: O(n * log(n))
+        Space: O(1). Call stack: O(log(n))
 
     Description:
         Wikipedia: http://en.wikipedia.org/wiki/Quicksort

@@ -3,9 +3,12 @@ import test
 def insertion_sort(nums):
     """Insertion sort. Suitable for small arrays or nearly sorted arrays.
 
-    Complexity:
+    Properties:
+        Stable
         Time: O(n^2)
         Space: O(1)
+        Adaptive: O(n) time when nearly sorted
+        Very low overhead
 
     Description:
         Wikipedia: http://en.wikipedia.org/wiki/Insertion_sort

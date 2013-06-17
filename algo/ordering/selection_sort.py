@@ -2,11 +2,14 @@ import test
 
 
 def selection_sort(nums):
-    """Selection sort. Naive implementation is not practical.
+    """Selection sort.
 
-    Complexity:
+    Properties:
+        Unstable
         Time: O(n^2)
         Space: O(1)
+        Swaps: O(n), optimal
+        Comparisons: O(n^2)
 
     Description:
         Wikipedia: http://en.wikipedia.org/wiki/Selection_sort

@@ -5,7 +5,8 @@ import test
 def heap_sort(array):
     """Heapsort
 
-    Complexity:
+    Properties:
+        Unstable
         Time: O(n * log(n))
         Space: O(1)
 

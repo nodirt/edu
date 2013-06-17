@@ -4,9 +4,12 @@ import test
 def merge_sort(nums):
     """Merge sort. Divide & Conquer approach.
 
-    Complexity:
+    Properties:
+        Stable
         Time: O(n * log(n))
         Space: O(n)
+        Does not require random access
+        Can be applied to sort data stored on external devices
 
     Description:
         Wikipedia: http://en.wikipedia.org/wiki/Merge_sort

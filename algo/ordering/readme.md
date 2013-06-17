@@ -1,4 +1,4 @@
-Algorithms related to sorting and ordering
+Sorting and ordering algorithms
 ------------------------------
 
 Comparison sorting:

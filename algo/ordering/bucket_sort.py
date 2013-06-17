@@ -5,8 +5,7 @@ def bucket_sort(nums, min=0, max=1):
 
     Properties:
         Stable
-        Time: O(n^2)
-        Average time: O(n)
+        Time: O(n^2). Average: O(n)
         Space: O(n)
         Can be applied to numbers only
 

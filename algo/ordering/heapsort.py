@@ -1,8 +1,6 @@
-import operator
-from heap import Heap
 import test
 
-def heap_sort(array):
+def heapsort(nums):
     """Heapsort
 
     Properties:
@@ -20,22 +18,49 @@ def heap_sort(array):
         Williams has invented heapsort, as well as heap.
         The algorithm in heapify_all was suggested by Robert W. Floyd (1964).
     """
-    if array is None:
-            raise Error("Parameter 'array' cannot be null")
+    n = len(nums)
+    heap_size = n
 
-    heap = Heap(array)
-    heap.heapify_all()
+    def left(i):
+        return 2 * i
+
+    def right(i):
+        return 2 * i + 1
+
+    # O(log(n))
+    def max_heapify(i):
+        """Fix max-property invariant if the ith node key is less than any of its children keys
+
+        Complexity:
+            Time: O(log(n/i))
+            Space: O(1)
+
+        Assumptions:
+            Left and right subtrees of ith node are heaps
+        """
+        l = left(i)
+        r = right(i)
+        if l >= heap_size:
+            return
+        largest = r if r < heap_size and nums[r] > nums[l] else l
+        if nums[largest] > nums[i]:
+            nums[i], nums[largest] = nums[largest], nums[i]
+            max_heapify(largest)
+
+    for i in xrange(n // 2, -1, -1):
+        max_heapify(i)
 
     # O(n*log(n))
-    while heap.size > 0:
-        heap.size -= 1
-        array[heap.size], array[0] = array[0], array[heap.size]
-        heap.max_heapify(0)
+    while heap_size > 0:
+        heap_size -= 1
+        nums[heap_size], nums[0] = nums[0], nums[heap_size]
+        max_heapify(0)
 
 
 def main():
-    test.test_sort(heap_sort)
+    test.test_sort(heapsort)
     print('All tests passed')
+
 
 if __name__ == '__main__':
     main()

@@ -4,9 +4,8 @@ def three_way_quicksort(nums):
     """3-way quicksort, works faster than original quicksort when input contains duplicates.
 
     Properties:
-        Time: O(n*n)
-        Average time: O(n * log(n))
-        Space: O(1)
+        Time: O(n^2). Average: O(n * log(n))
+        Space: O(n). Average: O(log(n))
         Adaptive: O(n) time when O(1) unique keys
 
     Description:
@@ -14,7 +13,7 @@ def three_way_quicksort(nums):
         Sedgewick [2]: section 2.3, page 296
 
     History:
-        Author: Sedgewick (1970s)
+        Author: Tony Hoare (1960), Sedgewick (1970s)
         Was improved by J. Bentley and D. McIlroy in 1990s and got popularity
     """
     def sort(lo, hi):

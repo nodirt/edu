@@ -27,6 +27,9 @@ def isPrime(x):
             return False
     return True
 
+def is_prime(x):
+    return isPrime(x)
+
 _primes = [2, 3]
 def primes(maxPrime=None):
     for p in _primes:
@@ -48,6 +51,20 @@ def primes(maxPrime=None):
             x += 2
             if x % 10 not in (0, 5):
                 break
+
+def is_perm(x, y):
+    d = [0] * 10
+
+    while x > 0:
+        d[x % 10] += 1
+        x /= 10
+
+
+    while y > 0:
+        d[y % 10] -= 1
+        y /= 10
+
+    return all(c == 0 for c in d)
 
 
 def palindroms():
